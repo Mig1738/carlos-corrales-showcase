@@ -1,0 +1,81 @@
+import { Download, GraduationCap, Target } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+const CVSection = () => {
+  return (
+    <section id="cv" className="py-20 bg-background">
+      <div className="container mx-auto px-4">
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">
+          <span className="bg-gradient-to-r from-primary to-red-600 bg-clip-text text-transparent">
+            🧾 Curriculum Vitae
+          </span>
+        </h2>
+
+        <div className="max-w-4xl mx-auto space-y-8">
+          {/* Education */}
+          <div className="bg-card rounded-lg p-8 border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20">
+            <div className="flex items-start gap-4">
+              <div className="bg-primary/20 p-3 rounded-lg">
+                <GraduationCap className="h-6 w-6 text-primary" />
+              </div>
+              <div className="flex-1">
+                <h3 className="text-2xl font-semibold mb-4 text-primary">Educational Background</h3>
+                <div className="space-y-4 text-foreground/80">
+                  <div>
+                    <h4 className="font-semibold text-foreground">Bachelor of Science in Information Technology</h4>
+                    <p className="text-sm">University Name | Expected Graduation: 2025</p>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-foreground">Senior High School</h4>
+                    <p className="text-sm">School Name | 2019 - 2021</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Achievements */}
+          <div className="bg-card rounded-lg p-8 border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20">
+            <div className="flex items-start gap-4">
+              <div className="bg-primary/20 p-3 rounded-lg">
+                <Target className="h-6 w-6 text-primary" />
+              </div>
+              <div className="flex-1">
+                <h3 className="text-2xl font-semibold mb-4 text-primary">Academic Achievements</h3>
+                <ul className="space-y-2 text-foreground/80 list-disc list-inside">
+                  <li>Dean's List - Multiple Semesters</li>
+                  <li>Best Capstone Project Award</li>
+                  <li>Programming Competition Finalist</li>
+                  <li>Student Leadership Award</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Objectives */}
+          <div className="bg-card rounded-lg p-8 border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20">
+            <h3 className="text-2xl font-semibold mb-4 text-primary">Career Objectives</h3>
+            <p className="text-foreground/80 leading-relaxed">
+              Aspiring IT professional seeking to leverage technical expertise in software development, 
+              problem-solving, and innovative thinking to contribute to cutting-edge technology projects. 
+              Committed to continuous learning and professional growth in the dynamic field of Information Technology.
+            </p>
+          </div>
+
+          {/* Download CV Button */}
+          <div className="text-center pt-4">
+            <Button
+              size="lg"
+              className="bg-primary hover:bg-primary/90 text-white px-8 py-6 text-lg rounded-md shadow-lg hover:shadow-primary/50 transition-all duration-300 hover:scale-105"
+            >
+              <Download className="mr-2 h-5 w-5" />
+              Download Complete CV
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default CVSection;
