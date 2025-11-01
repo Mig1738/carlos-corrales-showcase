@@ -3,28 +3,16 @@ import { Award } from "lucide-react";
 const CertificatesCarousel = () => {
   const certificates = [
     {
-      title: "Advanced Java Programming",
-      date: "March 2024",
-      organization: "Oracle Academy",
-      image: "cert-placeholder",
+      title: "CCNA: Introduction to Networks",
+      date: "2022",
+      organization: "Cisco Networking Academy",
+      image: "/CCNA-_Introduction_to_Networks_certificate_corralescarlos1738-gmail-com_fb98a704-bf9a-4094-adaf-2be91a93dd1f_page-0001.jpg",
     },
     {
-      title: "Web Development Fundamentals",
-      date: "January 2024",
-      organization: "Coursera",
-      image: "cert-placeholder",
-    },
-    {
-      title: "Python for Data Science",
-      date: "November 2023",
-      organization: "IBM",
-      image: "cert-placeholder",
-    },
-    {
-      title: "Mobile App Development",
-      date: "September 2023",
-      organization: "Google Developers",
-      image: "cert-placeholder",
+      title: "IT Fundamentals Certificate",
+      date: "2023",
+      organization: "Mapua Malayan Colleges Laguna",
+      image: "/d478ff4e-bdcd-4687-8c7c-73b024debd1f.jpg",
     },
   ];
 
@@ -37,15 +25,24 @@ const CertificatesCarousel = () => {
           </span>
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {certificates.map((cert, index) => (
             <div
               key={index}
               className="bg-card rounded-lg overflow-hidden border border-border hover:border-primary/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/20 group cursor-pointer animate-fade-in"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="aspect-video bg-gradient-to-br from-primary/20 to-red-900/20 flex items-center justify-center">
-                <Award className="h-16 w-16 text-primary group-hover:scale-110 transition-transform" />
+              <div className="aspect-video bg-gradient-to-br from-primary/20 to-red-900/20 flex items-center justify-center overflow-hidden">
+                {cert.image !== "cert-placeholder" ? (
+                  <img
+                    src={cert.image}
+                    alt={`${cert.title} certificate`}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform cursor-pointer"
+                    onClick={() => window.open(cert.image, '_blank')}
+                  />
+                ) : (
+                  <Award className="h-16 w-16 text-primary group-hover:scale-110 transition-transform" />
+                )}
               </div>
               <div className="p-4">
                 <h3 className="font-semibold text-lg mb-2 text-foreground group-hover:text-primary transition-colors">

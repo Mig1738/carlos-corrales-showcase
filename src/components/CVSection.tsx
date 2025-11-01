@@ -23,11 +23,7 @@ const CVSection = () => {
                 <div className="space-y-4 text-foreground/80">
                   <div>
                     <h4 className="font-semibold text-foreground">Bachelor of Science in Information Technology</h4>
-                    <p className="text-sm">University Name | Expected Graduation: 2025</p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground">Senior High School</h4>
-                    <p className="text-sm">School Name | 2019 - 2021</p>
+                    <p className="text-sm">Mapua Malayan Colleges Laguna | Expected Graduation: 2026</p>
                   </div>
                 </div>
               </div>
@@ -43,10 +39,9 @@ const CVSection = () => {
               <div className="flex-1">
                 <h3 className="text-2xl font-semibold mb-4 text-primary">Academic Achievements</h3>
                 <ul className="space-y-2 text-foreground/80 list-disc list-inside">
-                  <li>Dean's List - Multiple Semesters</li>
-                  <li>Best Capstone Project Award</li>
-                  <li>Programming Competition Finalist</li>
-                  <li>Student Leadership Award</li>
+                  <li>Dean's Lister - 1st Year, 2nd Term</li>
+                  <li>Dean's Lister - 1st Year, 3rd Term</li>
+                  <li>Dean's Lister - 3rd Year, 2nd Term</li>
                 </ul>
               </div>
             </div>

@@ -1,12 +1,12 @@
 const SkillsSection = () => {
   const skills = [
-    { name: "C#", level: 85, color: "from-purple-500 to-purple-700" },
-    { name: "Java", level: 80, color: "from-orange-500 to-red-600" },
+    { name: "C#", level: 75, color: "from-purple-500 to-purple-700" },
+    { name: "Java", level: 75, color: "from-orange-500 to-red-600" },
     { name: "Python", level: 75, color: "from-blue-500 to-blue-700" },
-    { name: "HTML / CSS", level: 90, color: "from-orange-400 to-blue-500" },
-    { name: "JavaScript", level: 85, color: "from-yellow-400 to-yellow-600" },
-    { name: "Flutter", level: 70, color: "from-blue-400 to-cyan-500" },
-    { name: "SQL", level: 80, color: "from-primary to-red-600" },
+    { name: "HTML / CSS", level: 75, color: "from-orange-400 to-blue-500" },
+    { name: "JavaScript", level: 75, color: "from-yellow-400 to-yellow-600" },
+    { name: "Flutter", level: 75, color: "from-blue-400 to-cyan-500" },
+    { name: "SQL", level: 75, color: "from-primary to-red-600" },
   ];
 
   return (

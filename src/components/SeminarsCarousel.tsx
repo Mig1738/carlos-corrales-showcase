@@ -3,24 +3,22 @@ import { Calendar } from "lucide-react";
 const SeminarsCarousel = () => {
   const seminars = [
     {
-      title: "Artificial Intelligence in Modern Development",
-      date: "February 2024",
-      description: "Deep dive into AI integration and machine learning applications",
+      title: "Career Development Seminar",
+      date: "2024",
+      description: "Professional development and career guidance session",
+      image: "/456705278_866614108749718_5558408941109076936_n.png",
     },
     {
-      title: "Cloud Computing & DevOps Best Practices",
-      date: "December 2023",
-      description: "Understanding modern cloud infrastructure and deployment strategies",
+      title: "Technology Innovation Workshop",
+      date: "2024",
+      description: "Latest trends in technology and innovation",
+      image: "/456876576_1681876632560431_6009602801953083059_n.png",
     },
     {
-      title: "Cybersecurity Fundamentals",
-      date: "October 2023",
-      description: "Essential security practices for software developers",
-    },
-    {
-      title: "Agile Software Development",
-      date: "August 2023",
-      description: "Implementing Scrum and Kanban in real-world projects",
+      title: "Industry Networking Event",
+      date: "2024",
+      description: "Connecting students with industry professionals",
+      image: "/458198945_1505721780050430_8062290209056050446_n.png",
     },
   ];
 
@@ -33,15 +31,26 @@ const SeminarsCarousel = () => {
           </span>
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {seminars.map((seminar, index) => (
             <div
               key={index}
               className="bg-background rounded-lg p-6 border border-border hover:border-primary/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/20 group cursor-pointer animate-fade-in"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="bg-primary/20 p-3 rounded-lg inline-block mb-4 group-hover:bg-primary/30 transition-colors">
-                <Calendar className="h-6 w-6 text-primary" />
+              <div className="aspect-video bg-gradient-to-br from-primary/20 to-red-900/20 rounded-lg overflow-hidden mb-4 group-hover:scale-105 transition-transform">
+                {seminar.image ? (
+                  <img
+                    src={seminar.image}
+                    alt={`${seminar.title} seminar`}
+                    className="w-full h-full object-cover cursor-pointer"
+                    onClick={() => window.open(seminar.image, '_blank')}
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center">
+                    <Calendar className="h-12 w-12 text-primary group-hover:scale-110 transition-transform" />
+                  </div>
+                )}
               </div>
               <h3 className="font-semibold text-lg mb-2 text-foreground group-hover:text-primary transition-colors">
                 {seminar.title}

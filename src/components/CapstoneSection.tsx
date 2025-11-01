@@ -25,12 +25,12 @@ const CapstoneSection = () => {
           {/* Main project card */}
           <div className="bg-card rounded-2xl p-8 md:p-12 border-2 border-primary/30 shadow-2xl shadow-primary/20 hover:shadow-primary/40 transition-all duration-300">
             <h3 className="text-3xl md:text-4xl font-bold mb-6 text-primary">
-              Smart Campus Management System
+              GIS Based Flood Management System Using Remote Sensing
             </h3>
 
             <p className="text-lg text-foreground/70 mb-8 leading-relaxed">
-              An innovative integrated platform designed to streamline campus operations, 
-              enhance student engagement, and optimize resource management through cutting-edge technology.
+              An advanced flood monitoring and management system that detects water level status in real-time,
+              displays graphical water level trends, provides news feed updates, and enables residents to send SOS alerts with location tracking.
             </p>
 
             {/* Features */}
@@ -44,27 +44,27 @@ const CapstoneSection = () => {
               <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-foreground/70">
                 <li className="flex items-start gap-2">
                   <span className="text-primary mt-1">▸</span>
-                  <span>Real-time attendance tracking with facial recognition</span>
+                  <span>Real-time water level status detection and monitoring</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-primary mt-1">▸</span>
-                  <span>Interactive class scheduling and room management</span>
+                  <span>Graphical visualization of water level trends</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-primary mt-1">▸</span>
-                  <span>Student portal with grade tracking and announcements</span>
+                  <span>News feed for flood updates and announcements</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-primary mt-1">▸</span>
-                  <span>Faculty dashboard for course management</span>
+                  <span>SOS alert system with GPS location tracking</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-primary mt-1">▸</span>
-                  <span>Analytics and reporting system for administrators</span>
+                  <span>GIS mapping integration for flood zones</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-primary mt-1">▸</span>
-                  <span>Mobile app integration for on-the-go access</span>
+                  <span>Remote sensing data integration</span>
                 </li>
               </ul>
             </div>
@@ -78,7 +78,7 @@ const CapstoneSection = () => {
                 <h4 className="text-xl font-semibold text-primary">Software & Technologies</h4>
               </div>
               <div className="flex flex-wrap gap-3">
-                {["React", "Node.js", "Express", "MongoDB", "Python", "TensorFlow", "Flutter", "Firebase", "Docker"].map(
+                {["Flutter", "Firebase", "GIS", "Remote Sensing", "Google Maps API"].map(
                   (tech) => (
                     <span
                       key={tech}
@@ -102,29 +102,47 @@ const CapstoneSection = () => {
               <ul className="text-foreground/70 space-y-2">
                 <li className="flex items-start gap-2">
                   <span className="text-primary mt-1">▸</span>
-                  <span>Raspberry Pi 4 for facial recognition processing</span>
+                  <span>Water level sensors for real-time monitoring</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-primary mt-1">▸</span>
-                  <span>HD cameras for attendance capture</span>
+                  <span>IoT devices for data collection and transmission</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-primary mt-1">▸</span>
-                  <span>RFID readers for library and facility access</span>
+                  <span>GPS modules for location tracking</span>
                 </li>
               </ul>
             </div>
 
-            {/* Screenshots placeholder */}
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              {[1, 2, 3, 4, 5, 6].map((i) => (
-                <div
-                  key={i}
-                  className="aspect-video bg-gradient-to-br from-primary/20 to-red-900/20 rounded-lg border border-primary/30 flex items-center justify-center hover:scale-105 transition-transform cursor-pointer"
-                >
-                  <span className="text-xs text-primary/50">Screenshot {i}</span>
-                </div>
-              ))}
+            {/* Screenshots */}
+            <div>
+              <h4 className="text-xl font-semibold text-primary mb-4">Project Screenshots</h4>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                {[
+                  "/3d79e3fe-b8b8-4ed1-8e6e-64f11f5575b1.jpg",
+                  "/9a674a5e-cc58-40c8-801d-ca48cba8efc4.jpg",
+                  "/b9fa7b4c-53ae-4cf3-a039-8f2133896776.jpg",
+                  "/c5358faf-6359-42e0-a7dd-b1a57e9b8410.jpg",
+                  "/d96152cd-6778-4c09-a926-1d86e3587e2f.jpg",
+                  "/e72ae642-cd9e-4059-a450-0e48627873bb.jpg",
+                  "/ea96717b-59e3-470b-9be8-fbb3ca019d56.jpg",
+                ].map((image, i) => (
+                  <div key={i} className="relative group/img">
+                    <img
+                      src={image}
+                      alt={`GIS Flood Management screenshot ${i + 1}`}
+                      className="w-full h-48 object-contain rounded border border-border hover:border-primary/50 transition-all cursor-pointer bg-black/5"
+                      onClick={() => window.open(image, '_blank')}
+                    />
+                    <div className="absolute inset-0 bg-black/0 group-hover/img:bg-black/20 transition-all rounded flex items-center justify-center pointer-events-none">
+                      <span className="text-white text-xs opacity-0 group-hover/img:opacity-100 transition-opacity bg-black/70 px-2 py-1 rounded">
+                        Click to enlarge
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

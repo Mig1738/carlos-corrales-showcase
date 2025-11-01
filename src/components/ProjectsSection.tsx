@@ -23,16 +23,15 @@ const ProjectsSection = () => {
       year: "2nd Year",
       projects: [
         {
-          title: "Library Management System",
-          features: "Book inventory, borrowing system, user authentication, reporting",
-          software: "C#, SQL Server, WPF",
-          machineProb: "Advanced SQL queries",
-        },
-        {
-          title: "E-Commerce Website",
-          features: "Product catalog, shopping cart, checkout system, admin panel",
-          software: "HTML, CSS, JavaScript, PHP, MySQL",
-          machineProb: "REST API development",
+          title: "Fruit Game Slot Machine",
+          features: "Interactive slot machine game, theme customization, score tracking, animated gameplay",
+          software: "Xamarin",
+          machineProb: "Mobile game development",
+          images: [
+            "/Screenshot_20251101-115105_FruitGame.jpg",
+            "/Screenshot_20251101-115108_FruitGame.jpg",
+            "/Screenshot_20251101-115112_FruitGame.jpg",
+          ],
         },
       ],
     },
@@ -40,33 +39,15 @@ const ProjectsSection = () => {
       year: "3rd Year",
       projects: [
         {
-          title: "Inventory Management System",
-          features: "Real-time tracking, automated alerts, analytics dashboard",
-          software: "Python, Flask, PostgreSQL",
-          machineProb: "Data analytics module",
-        },
-        {
-          title: "Mobile Task Manager",
-          features: "Task creation, reminders, categories, cloud sync",
-          software: "Flutter, Firebase",
-          machineProb: "Push notifications implementation",
-        },
-      ],
-    },
-    {
-      year: "4th Year",
-      projects: [
-        {
-          title: "Hospital Management System",
-          features: "Patient records, appointment scheduling, billing, prescription management",
-          software: "Java Spring Boot, React, MongoDB",
-          machineProb: "Microservices architecture",
-        },
-        {
-          title: "AI-Powered Chatbot",
-          features: "Natural language processing, context awareness, learning capabilities",
-          software: "Python, TensorFlow, Flask",
-          machineProb: "Model training optimization",
+          title: "Water Level Status Monitoring System",
+          features: "Real-time water level monitoring, normal and danger status alerts, IoT integration, mobile app interface",
+          software: "Wemos, Arduino, Xamarin",
+          machineProb: "IoT sensor integration and mobile monitoring",
+          images: [
+            "/Screenshot_20251101-115137_Waterlvl.jpg",
+            "/Screenshot_20251101-115144_Waterlvl.jpg",
+            "/Screenshot_20251101-115151_Waterlvl.jpg",
+          ],
         },
       ],
     },
@@ -89,11 +70,11 @@ const ProjectsSection = () => {
                 {yearData.year}
               </h3>
 
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className={`grid gap-6 ${yearData.projects.length === 1 ? 'grid-cols-1 max-w-3xl mx-auto' : 'grid-cols-1 lg:grid-cols-2'}`}>
                 {yearData.projects.map((project, projIndex) => (
                   <div
                     key={projIndex}
-                    className="bg-card rounded-lg p-6 border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 group animate-fade-in"
+                    className="bg-card rounded-2xl p-8 md:p-10 border-2 border-primary/30 hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/30 group animate-fade-in"
                     style={{ animationDelay: `${projIndex * 0.1}s` }}
                   >
                     <div className="flex items-start gap-4 mb-4">
@@ -123,11 +104,36 @@ const ProjectsSection = () => {
                         </div>
                       )}
 
-                      <div className="pt-2">
-                        <div className="inline-block px-3 py-1 bg-primary/10 rounded-full text-xs text-primary border border-primary/30">
-                          Screenshots Available
+                      {project.images && project.images.length > 0 && (
+                        <div className="pt-3">
+                          <p className="text-primary/80 font-semibold mb-2">Screenshots:</p>
+                          <div className="grid grid-cols-3 gap-3">
+                            {project.images.map((image, imgIndex) => (
+                              <div key={imgIndex} className="relative group/img">
+                                <img
+                                  src={image}
+                                  alt={`${project.title} screenshot ${imgIndex + 1}`}
+                                  className="w-full h-48 object-contain rounded border border-border hover:border-primary/50 transition-all cursor-pointer bg-black/5"
+                                  onClick={() => window.open(image, '_blank')}
+                                />
+                                <div className="absolute inset-0 bg-black/0 group-hover/img:bg-black/20 transition-all rounded flex items-center justify-center pointer-events-none">
+                                  <span className="text-white text-xs opacity-0 group-hover/img:opacity-100 transition-opacity bg-black/70 px-2 py-1 rounded">
+                                    Click to enlarge
+                                  </span>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
                         </div>
-                      </div>
+                      )}
+
+                      {!project.images && (
+                        <div className="pt-2">
+                          <div className="inline-block px-3 py-1 bg-primary/10 rounded-full text-xs text-primary border border-primary/30">
+                            Screenshots Available
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
                 ))}
