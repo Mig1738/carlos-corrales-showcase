@@ -59,13 +59,19 @@ const CVSection = () => {
 
           {/* Download CV Button */}
           <div className="text-center pt-4">
-            <Button
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-white px-8 py-6 text-lg rounded-md shadow-lg hover:shadow-primary/50 transition-all duration-300 hover:scale-105"
+            <a
+              href="/resume.pdf"
+              download="Carlos_Miguel_A_Corrales_Resume.pdf"
+              className="inline-block"
             >
-              <Download className="mr-2 h-5 w-5" />
-              Download Complete CV
-            </Button>
+              <Button
+                size="lg"
+                className="bg-primary hover:bg-primary/90 text-white px-8 py-6 text-lg rounded-md shadow-lg hover:shadow-primary/50 transition-all duration-300 hover:scale-105"
+              >
+                <Download className="mr-2 h-5 w-5" />
+                Download Complete CV
+              </Button>
+            </a>
           </div>
         </div>
       </div>

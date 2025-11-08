@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [imageError, setImageError] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,9 +39,21 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="text-2xl font-bold bg-gradient-to-r from-primary to-red-600 bg-clip-text text-transparent hover:scale-105 transition-transform"
+            className="hover:scale-105 transition-transform flex items-center"
+            aria-label="Home"
           >
-            CM
+            {imageError ? (
+              <span className="text-2xl font-bold bg-gradient-to-r from-primary to-red-600 bg-clip-text text-transparent">
+                CM
+              </span>
+            ) : (
+              <img 
+                src="/profile-icon.jpg" 
+                alt="Carlos Miguel A. Corrales" 
+                className="w-10 h-10 rounded-full border-2 border-primary object-cover shadow-lg"
+                onError={() => setImageError(true)}
+              />
+            )}
           </button>
 
           <div className="hidden md:flex items-center space-x-6">

@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Hero = () => {
+  const [imageError, setImageError] = useState(false);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background gradient */}
@@ -24,12 +27,21 @@ const Hero = () => {
       </div>
 
       <div className="relative z-10 container mx-auto px-4 text-center">
-        {/* Photo placeholder */}
+        {/* Profile Photo */}
         <div className="mb-8 inline-block">
-          <div className="w-48 h-48 rounded-full bg-gradient-to-br from-primary via-red-600 to-primary p-1 animate-glow-pulse">
-            <div className="w-full h-full rounded-full bg-card flex items-center justify-center text-6xl font-bold text-primary">
-              CM
-            </div>
+          <div className="w-48 h-48 rounded-full bg-gradient-to-br from-primary via-red-600 to-primary p-1 animate-glow-pulse shadow-2xl">
+            {imageError ? (
+              <div className="w-full h-full rounded-full bg-card flex items-center justify-center text-6xl font-bold text-primary">
+                CM
+              </div>
+            ) : (
+              <img 
+                src="/profile-icon.jpg" 
+                alt="Carlos Miguel A. Corrales" 
+                className="w-full h-full rounded-full object-cover"
+                onError={() => setImageError(true)}
+              />
+            )}
           </div>
         </div>
 
@@ -46,14 +58,20 @@ const Hero = () => {
         </p>
 
         {/* CV Download Button */}
-        <Button
-          size="lg"
-          className="bg-primary hover:bg-primary/90 text-white px-8 py-6 text-lg rounded-md shadow-lg hover:shadow-primary/50 transition-all duration-300 hover:scale-105 animate-fade-in-up"
-          style={{ animationDelay: "0.4s" }}
+        <a
+          href="/resume.pdf"
+          download="Carlos_Miguel_A_Corrales_Resume.pdf"
+          className="inline-block"
         >
-          <Download className="mr-2 h-5 w-5" />
-          Download CV
-        </Button>
+          <Button
+            size="lg"
+            className="bg-primary hover:bg-primary/90 text-white px-8 py-6 text-lg rounded-md shadow-lg hover:shadow-primary/50 transition-all duration-300 hover:scale-105 animate-fade-in-up"
+            style={{ animationDelay: "0.4s" }}
+          >
+            <Download className="mr-2 h-5 w-5" />
+            Download CV
+          </Button>
+        </a>
 
         {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">

@@ -6,16 +6,13 @@ const ProjectsSection = () => {
       year: "1st Year",
       projects: [
         {
-          title: "Simple Calculator App",
-          features: "Basic arithmetic operations, user-friendly interface, error handling",
-          software: "C#, Windows Forms",
-          machineProb: "Console-based version",
-        },
-        {
-          title: "Student Information System",
-          features: "CRUD operations, data validation, file storage",
-          software: "Java, Swing",
-          machineProb: "Database integration practice",
+          title: "4 Pics 1 Word Game",
+          features: "Interactive word guessing game, image-based puzzles, user-friendly interface, game logic implementation",
+          software: "Python",
+          machineProb: "Game development and logic programming",
+          images: [
+            "/4pics.jpg",
+          ],
         },
       ],
     },
@@ -107,13 +104,13 @@ const ProjectsSection = () => {
                       {project.images && project.images.length > 0 && (
                         <div className="pt-3">
                           <p className="text-primary/80 font-semibold mb-2">Screenshots:</p>
-                          <div className="grid grid-cols-3 gap-3">
+                          <div className={`grid gap-3 ${project.images.length === 1 ? 'grid-cols-1 max-w-2xl mx-auto' : 'grid-cols-3'}`}>
                             {project.images.map((image, imgIndex) => (
-                              <div key={imgIndex} className="relative group/img">
+                              <div key={imgIndex} className={`relative group/img ${project.images.length === 1 ? 'flex justify-center' : ''}`}>
                                 <img
                                   src={image}
                                   alt={`${project.title} screenshot ${imgIndex + 1}`}
-                                  className="w-full h-48 object-contain rounded border border-border hover:border-primary/50 transition-all cursor-pointer bg-black/5"
+                                  className={`${project.images.length === 1 ? 'max-w-full' : 'w-full'} h-48 object-contain rounded border border-border hover:border-primary/50 transition-all cursor-pointer bg-black/5 mx-auto`}
                                   onClick={() => window.open(image, '_blank')}
                                 />
                                 <div className="absolute inset-0 bg-black/0 group-hover/img:bg-black/20 transition-all rounded flex items-center justify-center pointer-events-none">
