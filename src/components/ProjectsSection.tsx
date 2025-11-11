@@ -103,20 +103,22 @@ const ProjectsSection = () => {
 
                       {project.images && project.images.length > 0 && (
                         <div className="pt-3">
-                          <p className="text-primary/80 font-semibold mb-2">Screenshots:</p>
-                          <div className={`grid gap-3 ${project.images.length === 1 ? 'grid-cols-1 max-w-2xl mx-auto' : 'grid-cols-3'}`}>
+                          <div className={`grid gap-6 ${project.images.length === 1 ? 'grid-cols-1 max-w-sm mx-auto' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'}`}>
                             {project.images.map((image, imgIndex) => (
-                              <div key={imgIndex} className={`relative group/img ${project.images.length === 1 ? 'flex justify-center' : ''}`}>
-                                <img
-                                  src={image}
-                                  alt={`${project.title} screenshot ${imgIndex + 1}`}
-                                  className={`${project.images.length === 1 ? 'max-w-full' : 'w-full'} h-48 object-contain rounded border border-border hover:border-primary/50 transition-all cursor-pointer bg-black/5 mx-auto`}
-                                  onClick={() => window.open(image, '_blank')}
-                                />
-                                <div className="absolute inset-0 bg-black/0 group-hover/img:bg-black/20 transition-all rounded flex items-center justify-center pointer-events-none">
-                                  <span className="text-white text-xs opacity-0 group-hover/img:opacity-100 transition-opacity bg-black/70 px-2 py-1 rounded">
-                                    Click to enlarge
-                                  </span>
+                              <div key={imgIndex} className="relative group/img flex justify-center">
+                                <div className="w-full max-w-xs mx-auto">
+                                  <img
+                                    src={image}
+                                    alt={`${project.title} screenshot ${imgIndex + 1}`}
+                                    className="w-full h-auto max-h-[600px] object-contain rounded-lg border-2 border-border hover:border-primary/50 transition-all cursor-pointer bg-black/5 shadow-lg hover:shadow-primary/20"
+                                    onClick={() => window.open(image, '_blank')}
+                                    style={{ aspectRatio: 'auto' }}
+                                  />
+                                  <div className="absolute inset-0 bg-black/0 group-hover/img:bg-black/20 transition-all rounded-lg flex items-center justify-center pointer-events-none">
+                                    <span className="text-white text-xs opacity-0 group-hover/img:opacity-100 transition-opacity bg-black/70 px-2 py-1 rounded">
+                                      Click to enlarge
+                                    </span>
+                                  </div>
                                 </div>
                               </div>
                             ))}

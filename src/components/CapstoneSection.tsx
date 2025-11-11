@@ -1,6 +1,49 @@
-import { Award, Code, Cpu, HardDrive } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
+import { Award, Code, Cpu, HardDrive, ChevronRight, ChevronLeft } from "lucide-react";
 
 const CapstoneSection = () => {
+  const screenshots = [
+    "/3d79e3fe-b8b8-4ed1-8e6e-64f11f5575b1.jpg",
+    "/9a674a5e-cc58-40c8-801d-ca48cba8efc4.jpg",
+    "/b9fa7b4c-53ae-4cf3-a039-8f2133896776.jpg",
+    "/c5358faf-6359-42e0-a7dd-b1a57e9b8410.jpg",
+    "/d96152cd-6778-4c09-a926-1d86e3587e2f.jpg",
+    "/e72ae642-cd9e-4059-a450-0e48627873bb.jpg",
+    "/ea96717b-59e3-470b-9be8-fbb3ca019d56.jpg",
+  ];
+
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (scrollContainerRef.current) {
+      const scrollAmount = scrollContainerRef.current.clientWidth * 0.8;
+      const scrollTo = direction === 'right' 
+        ? scrollContainerRef.current.scrollLeft + scrollAmount
+        : scrollContainerRef.current.scrollLeft - scrollAmount;
+      
+      scrollContainerRef.current.scrollTo({
+        left: scrollTo,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  const handleScroll = () => {
+    if (scrollContainerRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
+      setCanScrollLeft(scrollLeft > 0);
+      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
+    }
+  };
+
+  useEffect(() => {
+    handleScroll();
+    window.addEventListener('resize', handleScroll);
+    return () => window.removeEventListener('resize', handleScroll);
+  }, []);
+
   return (
     <section id="capstone" className="py-20 bg-gradient-to-b from-card/50 to-background relative overflow-hidden">
       {/* Featured background effect */}
@@ -117,31 +160,66 @@ const CapstoneSection = () => {
 
             {/* Screenshots */}
             <div>
-              <h4 className="text-xl font-semibold text-primary mb-4">Project Screenshots</h4>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                {[
-                  "/3d79e3fe-b8b8-4ed1-8e6e-64f11f5575b1.jpg",
-                  "/9a674a5e-cc58-40c8-801d-ca48cba8efc4.jpg",
-                  "/b9fa7b4c-53ae-4cf3-a039-8f2133896776.jpg",
-                  "/c5358faf-6359-42e0-a7dd-b1a57e9b8410.jpg",
-                  "/d96152cd-6778-4c09-a926-1d86e3587e2f.jpg",
-                  "/e72ae642-cd9e-4059-a450-0e48627873bb.jpg",
-                  "/ea96717b-59e3-470b-9be8-fbb3ca019d56.jpg",
-                ].map((image, i) => (
-                  <div key={i} className="relative group/img">
-                    <img
-                      src={image}
-                      alt={`GIS Flood Management screenshot ${i + 1}`}
-                      className="w-full h-48 object-contain rounded border border-border hover:border-primary/50 transition-all cursor-pointer bg-black/5"
+              <div className="relative group">
+                {/* Left Arrow */}
+                {canScrollLeft && (
+                  <button
+                    onClick={() => scroll('left')}
+                    className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white hover:bg-white/90 text-black p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-lg"
+                    aria-label="Scroll left"
+                  >
+                    <ChevronLeft className="h-6 w-6" />
+                  </button>
+                )}
+                
+                {/* Right Arrow */}
+                {canScrollRight && (
+                  <button
+                    onClick={() => scroll('right')}
+                    className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white hover:bg-white/90 text-black p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-lg"
+                    aria-label="Scroll right"
+                  >
+                    <ChevronRight className="h-6 w-6" />
+                  </button>
+                )}
+
+                {/* Gradient Fade - Left */}
+                <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background via-background/80 to-transparent z-5 pointer-events-none" />
+                
+                {/* Gradient Fade - Right */}
+                <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background via-background/80 to-transparent z-5 pointer-events-none" />
+
+                {/* Scrollable Container */}
+                <div
+                  ref={scrollContainerRef}
+                  onScroll={handleScroll}
+                  className="flex gap-4 overflow-x-auto scrollbar-hide pb-4 scroll-smooth"
+                  style={{
+                    scrollbarWidth: 'none',
+                    msOverflowStyle: 'none',
+                  }}
+                >
+                  {screenshots.map((image, i) => (
+                    <div
+                      key={i}
+                      className="flex-shrink-0 w-[300px] md:w-[400px] group/img cursor-pointer transition-transform duration-300 hover:scale-110"
                       onClick={() => window.open(image, '_blank')}
-                    />
-                    <div className="absolute inset-0 bg-black/0 group-hover/img:bg-black/20 transition-all rounded flex items-center justify-center pointer-events-none">
-                      <span className="text-white text-xs opacity-0 group-hover/img:opacity-100 transition-opacity bg-black/70 px-2 py-1 rounded">
-                        Click to enlarge
-                      </span>
+                    >
+                      <div className="relative rounded-lg overflow-hidden border-2 border-transparent hover:border-primary transition-all duration-300 shadow-lg hover:shadow-primary/50">
+                        <img
+                          src={image}
+                          alt={`GIS Flood Management screenshot ${i + 1}`}
+                          className="w-full h-auto max-h-[500px] object-contain bg-black/5"
+                        />
+                        <div className="absolute inset-0 bg-black/0 group-hover/img:bg-black/20 transition-all flex items-center justify-center">
+                          <span className="text-white text-xs opacity-0 group-hover/img:opacity-100 transition-opacity bg-black/70 px-2 py-1 rounded">
+                            Click to enlarge
+                          </span>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
           </div>
