@@ -1,46 +1,48 @@
 const SkillsSection = () => {
-  const skills = [
-    { name: "C#", level: 75, color: "from-purple-500 to-purple-700" },
-    { name: "Java", level: 75, color: "from-orange-500 to-red-600" },
-    { name: "Python", level: 75, color: "from-blue-500 to-blue-700" },
-    { name: "HTML / CSS", level: 75, color: "from-orange-400 to-blue-500" },
-    { name: "JavaScript", level: 75, color: "from-yellow-400 to-yellow-600" },
-    { name: "Flutter", level: 75, color: "from-blue-400 to-cyan-500" },
-    { name: "SQL", level: 75, color: "from-primary to-red-600" },
+  const skillCategories = [
+    {
+      title: "LANGUAGES",
+      items: ["Html & CSS", "PHP", "Flutter", "C#"],
+    },
+    {
+      title: "TOOLS",
+      items: ["Visual Studio", "Visual Studio Code", "Apache & Xampp", "Arduino IDE", "Github"],
+    },
+    {
+      title: "DATABASES",
+      items: ["mySQL Database", "Firebase Database"],
+    },
   ];
 
   return (
-    <section id="skills" className="py-20 bg-card/50">
+    <section id="skills" className="py-20 bg-background">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">
-          <span className="bg-gradient-to-r from-primary to-red-600 bg-clip-text text-transparent">
-            💻 Programming Skills
-          </span>
-        </h2>
+        <div className="flex justify-center mb-12">
+          <button className="bg-primary text-white px-6 py-2 rounded font-semibold text-lg hover:bg-primary/90 transition-colors">
+            SKILLS
+          </button>
+        </div>
 
-        <div className="max-w-4xl mx-auto space-y-8">
-          {skills.map((skill, index) => (
-            <div
-              key={skill.name}
-              className="bg-background rounded-lg p-6 border border-border hover:border-primary/50 transition-all duration-300 animate-fade-in"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <div className="flex items-center justify-between mb-3">
-                <h3 className="text-xl font-semibold">{skill.name}</h3>
-                <span className="text-sm text-primary font-semibold">{skill.level}%</span>
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {skillCategories.map((category, index) => (
+              <div
+                key={category.title}
+                className="bg-card rounded-lg p-6 border border-border hover:border-primary/50 transition-all duration-300 animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <h3 className="text-primary font-bold text-lg mb-4">{category.title}</h3>
+                <ul className="space-y-2">
+                  {category.items.map((item) => (
+                    <li key={item} className="text-foreground text-sm flex items-center">
+                      <span className="text-primary mr-2">•</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
-
-              <div className="relative h-4 bg-muted rounded-full overflow-hidden">
-                <div
-                  className={`absolute top-0 left-0 h-full bg-gradient-to-r ${skill.color} rounded-full transition-all duration-1000 ease-out animate-glow-pulse`}
-                  style={{
-                    width: `${skill.level}%`,
-                    animationDelay: `${index * 0.1}s`,
-                  }}
-                />
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -24,9 +24,8 @@ const Navigation = () => {
     { id: "cv", label: "🧾 Curriculum Vitae" },
     { id: "skills", label: "💻 Programming Skills" },
     { id: "certificates", label: "📜 Certificates" },
-    { id: "seminars", label: "🎓 Seminars" },
     { id: "projects", label: "🧠 Software Developed" },
-    { id: "capstone", label: "🧩 Capstone Project" },
+    { id: "capstone", label: "🧩 4th Year Capstone Project" },
   ];
 
   return (

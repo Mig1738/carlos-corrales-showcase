@@ -46,16 +46,11 @@ const Hero = () => {
         </div>
 
         {/* Name */}
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in-up">
+        <h1 className="text-5xl md:text-7xl font-bold mb-8 animate-fade-in-up">
           <span className="bg-gradient-to-r from-primary via-red-600 to-primary bg-clip-text text-transparent">
             Carlos Miguel A. Corrales
           </span>
         </h1>
-
-        {/* Tagline */}
-        <p className="text-xl md:text-2xl text-foreground/70 mb-8 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
-          Exploring Innovation Through Code and Technology
-        </p>
 
         {/* CV Download Button */}
         <a

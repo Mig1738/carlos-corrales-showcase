@@ -3,6 +3,18 @@ import { Award } from "lucide-react";
 const CertificatesCarousel = () => {
   const certificates = [
     {
+      title: "Certificate of Completion",
+      date: "2024",
+      organization: "Certificate Issuer",
+      image: "/Certificate-Of-Completion_Corrales_page-0001.jpg",
+    },
+    {
+      title: "Cybersecurity Awareness",
+      date: "2024",
+      organization: "Certificate Issuer",
+      image: "/CARLOS MIGUEL A. CORRALES Certificate of Attendance_page-0001.jpg",
+    },
+    {
       title: "CCNA: Introduction to Networks",
       date: "2022",
       organization: "Cisco Networking Academy",
@@ -13,6 +25,24 @@ const CertificatesCarousel = () => {
       date: "2023",
       organization: "Mapua Malayan Colleges Laguna",
       image: "/d478ff4e-bdcd-4687-8c7c-73b024debd1f.jpg",
+    },
+    {
+      title: "Career Development Seminar",
+      date: "2024",
+      organization: "Professional development and career guidance session",
+      image: "/456705278_866614108749718_5558408941109076936_n.png",
+    },
+    {
+      title: "Technology Innovation Workshop",
+      date: "2024",
+      organization: "Latest trends in technology and innovation",
+      image: "/456876576_1681876632560431_6009602801953083059_n.png",
+    },
+    {
+      title: "Industry Networking Event",
+      date: "2024",
+      organization: "Connecting students with industry professionals",
+      image: "/458198945_1505721780050430_8062290209056050446_n.png",
     },
   ];
 
@@ -25,7 +55,7 @@ const CertificatesCarousel = () => {
           </span>
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {certificates.map((cert, index) => (
             <div
               key={index}

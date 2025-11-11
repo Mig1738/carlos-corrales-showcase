@@ -1,4 +1,4 @@
-import { Calendar } from "lucide-react";
+import { Award } from "lucide-react";
 
 const SeminarsCarousel = () => {
   const seminars = [
@@ -23,11 +23,11 @@ const SeminarsCarousel = () => {
   ];
 
   return (
-    <section id="seminars" className="py-20 bg-card/50">
+    <section id="seminars" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">
           <span className="bg-gradient-to-r from-primary to-red-600 bg-clip-text text-transparent">
-            🎓 Seminars
+            📜 Seminars
           </span>
         </h2>
 
@@ -35,28 +35,28 @@ const SeminarsCarousel = () => {
           {seminars.map((seminar, index) => (
             <div
               key={index}
-              className="bg-background rounded-lg p-6 border border-border hover:border-primary/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/20 group cursor-pointer animate-fade-in"
+              className="bg-card rounded-lg overflow-hidden border border-border hover:border-primary/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/20 group cursor-pointer animate-fade-in"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="aspect-video bg-gradient-to-br from-primary/20 to-red-900/20 rounded-lg overflow-hidden mb-4 group-hover:scale-105 transition-transform">
+              <div className="aspect-video bg-gradient-to-br from-primary/20 to-red-900/20 flex items-center justify-center overflow-hidden">
                 {seminar.image ? (
                   <img
                     src={seminar.image}
                     alt={`${seminar.title} seminar`}
-                    className="w-full h-full object-cover cursor-pointer"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform cursor-pointer"
                     onClick={() => window.open(seminar.image, '_blank')}
                   />
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center">
-                    <Calendar className="h-12 w-12 text-primary group-hover:scale-110 transition-transform" />
-                  </div>
+                  <Award className="h-16 w-16 text-primary group-hover:scale-110 transition-transform" />
                 )}
               </div>
-              <h3 className="font-semibold text-lg mb-2 text-foreground group-hover:text-primary transition-colors">
-                {seminar.title}
-              </h3>
-              <p className="text-xs text-primary mb-3">{seminar.date}</p>
-              <p className="text-sm text-foreground/70">{seminar.description}</p>
+              <div className="p-4">
+                <h3 className="font-semibold text-lg mb-2 text-foreground group-hover:text-primary transition-colors">
+                  {seminar.title}
+                </h3>
+                <p className="text-xs text-primary mb-1">{seminar.date}</p>
+                <p className="text-sm text-foreground/60">{seminar.description}</p>
+              </div>
             </div>
           ))}
         </div>

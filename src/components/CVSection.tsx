@@ -47,16 +47,6 @@ const CVSection = () => {
             </div>
           </div>
 
-          {/* Objectives */}
-          <div className="bg-card rounded-lg p-8 border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20">
-            <h3 className="text-2xl font-semibold mb-4 text-primary">Career Objectives</h3>
-            <p className="text-foreground/80 leading-relaxed">
-              Aspiring IT professional seeking to leverage technical expertise in software development, 
-              problem-solving, and innovative thinking to contribute to cutting-edge technology projects. 
-              Committed to continuous learning and professional growth in the dynamic field of Information Technology.
-            </p>
-          </div>
-
           {/* Download CV Button */}
           <div className="text-center pt-4">
             <a

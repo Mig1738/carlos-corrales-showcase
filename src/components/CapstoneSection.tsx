@@ -17,7 +17,7 @@ const CapstoneSection = () => {
 
         <h2 className="text-4xl md:text-6xl font-bold text-center mb-6">
           <span className="bg-gradient-to-r from-primary via-red-500 to-primary bg-clip-text text-transparent">
-            🧩 Capstone Project
+            🧩 4th Year Capstone Project
           </span>
         </h2>
 
