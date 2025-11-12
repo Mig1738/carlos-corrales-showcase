@@ -145,15 +145,19 @@ const CapstoneSection = () => {
               <ul className="text-foreground/70 space-y-2">
                 <li className="flex items-start gap-2">
                   <span className="text-primary mt-1">▸</span>
-                  <span>Water level sensors for real-time monitoring</span>
+                  <span>Lidar</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-primary mt-1">▸</span>
-                  <span>IoT devices for data collection and transmission</span>
+                  <span>Esp32</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-primary mt-1">▸</span>
-                  <span>GPS modules for location tracking</span>
+                  <span>Solar Generator</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary mt-1">▸</span>
+                  <span>SMS Module</span>
                 </li>
               </ul>
             </div>
