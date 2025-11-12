@@ -29,7 +29,7 @@ const Hero = () => {
       <div className="relative z-10 container mx-auto px-4 text-center">
         {/* Profile Photo */}
         <div className="mb-8 inline-block">
-          <div className="w-48 h-48 rounded-full bg-gradient-to-br from-primary via-red-600 to-primary p-1 animate-glow-pulse shadow-2xl">
+          <div className="w-56 h-56 md:w-64 md:h-64 rounded-full bg-gradient-to-br from-primary via-red-600 to-primary p-1 animate-glow-pulse shadow-2xl">
             {imageError ? (
               <div className="w-full h-full rounded-full bg-card flex items-center justify-center text-6xl font-bold text-primary">
                 CM

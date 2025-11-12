@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Mail, Facebook, Phone, LogOut } from "lucide-react";
+import { Mail, Facebook, Phone, LogOut, Menu } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -7,6 +7,7 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
+import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 
 interface NavigationProps {
   onLogout: () => void;
@@ -17,6 +18,7 @@ const Navigation = ({ onLogout }: NavigationProps) => {
   const [imageError, setImageError] = useState(false);
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [showLogoutMenu, setShowLogoutMenu] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -48,14 +50,17 @@ const Navigation = ({ onLogout }: NavigationProps) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth", block: "start" });
+      setIsMobileMenuOpen(false); // Close mobile menu after navigation
     }
   };
 
   const menuItems = [
+    { id: "about", label: "👤 About Me" },
     { id: "skills", label: "💻 Programming Skills" },
     { id: "certificates", label: "📜 Certificates" },
     { id: "projects", label: "🧠 Software Developed" },
     { id: "capstone", label: "🧩 4th Year Capstone Project" },
+    { id: "final-report", label: "📄 Final Output" },
   ];
 
   return (
@@ -108,6 +113,7 @@ const Navigation = ({ onLogout }: NavigationProps) => {
             )}
           </div>
 
+          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
             {menuItems.map((item) => (
               <button
@@ -126,8 +132,85 @@ const Navigation = ({ onLogout }: NavigationProps) => {
               Contact Me
             </button>
           </div>
+
+          {/* Mobile Hamburger Menu Button */}
+          <button
+            onClick={() => setIsMobileMenuOpen(true)}
+            className="md:hidden text-foreground hover:text-primary transition-colors"
+            aria-label="Open menu"
+          >
+            <Menu className="h-6 w-6" />
+          </button>
         </div>
       </div>
+
+      {/* Mobile Side Panel */}
+      <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
+        <SheetContent side="left" className="w-[280px] bg-card border-border">
+          <SheetHeader>
+            <SheetTitle className="text-left text-primary">Menu</SheetTitle>
+          </SheetHeader>
+          
+          <div className="mt-8 space-y-4">
+            {/* Profile Section */}
+            <div className="flex items-center gap-3 pb-4 border-b border-border/50">
+              {imageError ? (
+                <span className="text-xl font-bold bg-gradient-to-r from-primary to-red-600 bg-clip-text text-transparent">
+                  CM
+                </span>
+              ) : (
+                <img 
+                  src="/profile-icon.jpg" 
+                  alt="Carlos Miguel A. Corrales" 
+                  className="w-12 h-12 rounded-full border-2 border-primary object-cover"
+                  onError={() => setImageError(true)}
+                />
+              )}
+              <div>
+                <p className="font-semibold text-foreground">Carlos Miguel A. Corrales</p>
+                <p className="text-sm text-foreground/60">Portfolio</p>
+              </div>
+            </div>
+
+            {/* Navigation Items */}
+            <div className="space-y-2">
+              {menuItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className="w-full text-left px-4 py-3 rounded-lg text-foreground/80 hover:text-primary hover:bg-primary/10 transition-colors duration-200 flex items-center gap-3"
+                >
+                  <span className="text-lg">{item.label.split(' ')[0]}</span>
+                  <span className="text-sm">{item.label.substring(item.label.indexOf(' ') + 1)}</span>
+                </button>
+              ))}
+            </div>
+
+            {/* Contact Me Button */}
+            <button
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                setIsContactOpen(true);
+              }}
+              className="w-full bg-primary hover:bg-primary/90 text-white px-4 py-3 rounded-lg transition-colors duration-200 font-semibold mt-4"
+            >
+              Contact Me
+            </button>
+
+            {/* Logout Button */}
+            <button
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                onLogout();
+              }}
+              className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-foreground hover:bg-primary/10 transition-colors duration-200 mt-4"
+            >
+              <LogOut className="h-5 w-5 text-primary" />
+              <span className="font-semibold">Logout</span>
+            </button>
+          </div>
+        </SheetContent>
+      </Sheet>
 
       {/* Contact Modal */}
       <Dialog open={isContactOpen} onOpenChange={setIsContactOpen}>

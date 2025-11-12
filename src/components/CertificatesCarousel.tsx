@@ -3,7 +3,7 @@ import { Award } from "lucide-react";
 const CertificatesCarousel = () => {
   const certificates = [
     {
-      title: "Certificate of Completion",
+      title: "wearOS: Energing technology for internet and learning of everything",
       date: "2024",
       organization: "Certificate Issuer",
       image: "/Certificate-Of-Completion_Corrales_page-0001.jpg",
@@ -27,21 +27,21 @@ const CertificatesCarousel = () => {
       image: "/d478ff4e-bdcd-4687-8c7c-73b024debd1f.jpg",
     },
     {
-      title: "Career Development Seminar",
+      title: "Introduction to Edge Computing",
       date: "2024",
-      organization: "Professional development and career guidance session",
+      organization: "USAID - Open RAN Access Network - Inter-Pacific Opportunity Program",
       image: "/456705278_866614108749718_5558408941109076936_n.png",
     },
     {
-      title: "Technology Innovation Workshop",
+      title: "Introduction to Firewall",
       date: "2024",
-      organization: "Latest trends in technology and innovation",
+      organization: "Great Learning Academy",
       image: "/456876576_1681876632560431_6009602801953083059_n.png",
     },
     {
-      title: "Industry Networking Event",
+      title: "Introduction to Cloud Computing",
       date: "2024",
-      organization: "Connecting students with industry professionals",
+      organization: "USAID - Inter-Pacific Opportunity Program",
       image: "/458198945_1505721780050430_8062290209056050446_n.png",
     },
   ];

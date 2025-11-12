@@ -1,4 +1,19 @@
 const SkillsSection = () => {
+  // Mapping of skill names to their image paths
+  const skillImages: Record<string, string> = {
+    "Html & CSS": "/skills/html-logo-canvas-element-javascript-png-favpng-9Zr8VThP4aQLbAyUYddQzU2rA.jpg",
+    "PHP": "/skills/web-development-php-programming-language-computer-programming-scripting-language-png-favpng-v01pzTghVTZKPuW3rgxsYdSaU.jpg",
+    "Flutter": "/skills/Google-Flutter-Icon-PNG.jpg",
+    "C#": "/skills/download.jpg",
+    "Visual Studio": "/skills/241-2410514_visual-studio-microsoft-visual-studio-logo.png",
+    "Visual Studio Code": "/skills/png-clipart-visual-studio-code-logo-thumbnail-tech-companies-thumbnail.png",
+    "Apache & Xampp": "/skills/images.jpg",
+    "Arduino IDE": "/skills/pngtree-logo-arduino-png-image_4465472.png",
+    "Github": "/skills/github-computer-icons-logo-repository-png-favpng-3D6iEY0b391hz9PYJZqnvKTLT.jpg",
+    "mySQL Database": "/skills/images.png",
+    "Firebase Database": "/skills/firebase-logo-11609361103azdpszm85x.png",
+  };
+
   const skillCategories = [
     {
       title: "LANGUAGES",
@@ -32,11 +47,17 @@ const SkillsSection = () => {
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <h3 className="text-primary font-bold text-lg mb-4">{category.title}</h3>
-                <ul className="space-y-2">
+                <ul className="space-y-3">
                   {category.items.map((item) => (
-                    <li key={item} className="text-foreground text-sm flex items-center">
-                      <span className="text-primary mr-2">•</span>
-                      {item}
+                    <li key={item} className="text-foreground text-sm flex items-center gap-3">
+                      {skillImages[item] && (
+                        <img
+                          src={skillImages[item]}
+                          alt={item}
+                          className="w-8 h-8 object-contain flex-shrink-0"
+                        />
+                      )}
+                      <span>{item}</span>
                     </li>
                   ))}
                 </ul>

@@ -3,6 +3,7 @@ import IntroAnimation from "@/components/IntroAnimation";
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import AboutMe from "@/components/AboutMe";
+import CVSection from "@/components/CVSection";
 import SkillsSection from "@/components/SkillsSection";
 import CertificatesCarousel from "@/components/CertificatesCarousel";
 import ProjectsSection from "@/components/ProjectsSection";
@@ -27,6 +28,7 @@ const Index = () => {
           <Navigation onLogout={handleLogout} />
           <Hero />
           <AboutMe />
+          <CVSection />
           <SkillsSection />
           <CertificatesCarousel />
           <ProjectsSection />
