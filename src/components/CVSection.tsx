@@ -24,7 +24,7 @@ const CVSection = () => {
                       />
                     </div>
                     <div className="flex-1 space-y-3">
-                      <h4 className="text-xl font-bold text-white mb-2">Santa Catalina College</h4>
+                      <h4 className="text-xl font-bold text-foreground mb-2">Santa Catalina College</h4>
                       <div>
                         <h4 className="font-semibold text-foreground">Grade School</h4>
                       </div>
@@ -47,7 +47,7 @@ const CVSection = () => {
                       />
                     </div>
                     <div className="flex-1 space-y-3">
-                      <h4 className="text-xl font-bold text-white mb-2">Mapua Malayan Colleges Laguna</h4>
+                      <h4 className="text-xl font-bold text-foreground mb-2">Mapua Malayan Colleges Laguna</h4>
                       <div>
                         <h4 className="font-semibold text-foreground">Bachelor of Science in Information Technology</h4>
                         <p className="text-sm">Expected Graduation: 2026</p>

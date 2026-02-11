@@ -89,10 +89,10 @@ export default {
           "100%": { opacity: "1", transform: "translateX(0)" },
         },
         "glow-pulse": {
-          "0%, 100%": { boxShadow: "0 0 20px hsl(358 89% 49% / 0.3)" },
-          "50%": { boxShadow: "0 0 40px hsl(358 89% 49% / 0.6)" },
+          "0%, 100%": { boxShadow: "0 0 20px hsl(221 83% 53% / 0.2)" },
+          "50%": { boxShadow: "0 0 40px hsl(221 83% 53% / 0.4)" },
         },
-        "netflix-intro": {
+        "intro-scale": {
           "0%": { opacity: "0", transform: "scale(0.5)" },
           "50%": { opacity: "1", transform: "scale(1.1)" },
           "100%": { opacity: "1", transform: "scale(1)" },
@@ -110,7 +110,7 @@ export default {
         "slide-in-left": "slide-in-left 0.6s ease-out",
         "slide-in-right": "slide-in-right 0.6s ease-out",
         "glow-pulse": "glow-pulse 2s ease-in-out infinite",
-        "netflix-intro": "netflix-intro 1.5s ease-out",
+        "intro-scale": "intro-scale 1.5s ease-out",
         "float": "float 3s ease-in-out infinite",
       },
     },

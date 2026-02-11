@@ -22,7 +22,7 @@ const FinalReportSection = () => {
     <section id="final-report" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-6">
-          <span className="bg-gradient-to-r from-primary to-red-600 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
             📄 Final Output
           </span>
         </h2>

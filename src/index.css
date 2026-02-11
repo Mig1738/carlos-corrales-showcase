@@ -8,48 +8,36 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Netflix-inspired dark theme */
-    --background: 0 0% 4%;
-    --foreground: 0 0% 98%;
+    /* Light theme */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 9%;
 
-    --card: 0 0% 9%;
-    --card-foreground: 0 0% 98%;
+    --card: 0 0% 98%;
+    --card-foreground: 0 0% 9%;
 
-    --popover: 0 0% 9%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 9%;
 
-    /* Netflix Red */
-    --primary: 358 89% 49%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 221 83% 53%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 15%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 9%;
 
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 60%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
 
-    --accent: 358 89% 49%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 221 83% 53%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 358 89% 49%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 221 83% 53%;
 
     --radius: 0.5rem;
-
-    /* Custom Netflix theme tokens */
-    --netflix-red: 358 89% 49%;
-    --netflix-red-dark: 358 89% 39%;
-    --netflix-black: 0 0% 4%;
-    --netflix-gray: 0 0% 9%;
-    --netflix-gray-light: 0 0% 15%;
-    
-    /* Glow effects */
-    --glow-red: 0 0 20px hsl(358 89% 49% / 0.5);
-    --glow-red-strong: 0 0 30px hsl(358 89% 49% / 0.8);
   }
 }
 
@@ -78,12 +66,12 @@ All colors MUST be HSL.
   }
 
   ::-webkit-scrollbar-thumb {
-    background: hsl(var(--netflix-red));
+    background: hsl(var(--primary));
     border-radius: 5px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: hsl(var(--netflix-red-dark));
+    background: hsl(221 83% 45%);
   }
 
   /* Hide scrollbar for horizontal carousel */

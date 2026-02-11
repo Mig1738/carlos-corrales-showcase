@@ -8,7 +8,7 @@ const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-black/95 to-background" />
+      <div className="absolute inset-0 bg-gradient-to-b from-muted via-background to-background" />
 
       {/* Animated particles */}
       <div className="absolute inset-0 overflow-hidden">
@@ -29,7 +29,7 @@ const Hero = () => {
       <div className="relative z-10 container mx-auto px-4 text-center">
         {/* Profile Photo */}
         <div className="mb-8 inline-block">
-          <div className="w-56 h-56 md:w-64 md:h-64 rounded-full bg-gradient-to-br from-primary via-red-600 to-primary p-1 animate-glow-pulse shadow-2xl">
+          <div className="w-56 h-56 md:w-64 md:h-64 rounded-full bg-gradient-to-br from-primary to-primary/80 p-1 animate-glow-pulse shadow-2xl">
             {imageError ? (
               <div className="w-full h-full rounded-full bg-card flex items-center justify-center text-6xl font-bold text-primary">
                 CM
@@ -47,7 +47,7 @@ const Hero = () => {
 
         {/* Name */}
         <h1 className="text-5xl md:text-7xl font-bold mb-8 animate-fade-in-up">
-          <span className="bg-gradient-to-r from-primary via-red-600 to-primary bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
             Carlos Miguel A. Corrales
           </span>
         </h1>
@@ -55,7 +55,7 @@ const Hero = () => {
         {/* CV Download Button */}
         <a
           href="/resume.pdf"
-          download="Carlos_Miguel_A_Corrales_Resume.pdf"
+          download="Resume - Corrales, Carlos Miguel.pdf"
           className="inline-block"
         >
           <Button

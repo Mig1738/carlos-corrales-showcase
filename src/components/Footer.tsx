@@ -2,11 +2,11 @@ import { Mail, Github } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-black border-t border-primary/20 py-12">
+    <footer className="bg-muted border-t border-border py-12">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center space-y-6">
           {/* Name */}
-          <h3 className="text-2xl font-bold bg-gradient-to-r from-primary to-red-600 bg-clip-text text-transparent">
+          <h3 className="text-2xl font-bold text-foreground">
             Carlos Miguel A. Corrales
           </h3>
 
@@ -36,7 +36,7 @@ const Footer = () => {
           </div>
 
           {/* Copyright */}
-          <div className="pt-6 border-t border-primary/20">
+          <div className="pt-6 border-t border-border">
             <p className="text-sm text-foreground/50">
               Made by Carlos Miguel A. Corrales
             </p>

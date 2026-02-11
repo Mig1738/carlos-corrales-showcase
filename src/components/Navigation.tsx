@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef } from "react";
-import { Mail, Facebook, Phone, LogOut, Menu } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Mail, Facebook, Phone, Menu } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -9,17 +9,11 @@ import {
 } from "@/components/ui/dialog";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 
-interface NavigationProps {
-  onLogout: () => void;
-}
-
-const Navigation = ({ onLogout }: NavigationProps) => {
+const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [imageError, setImageError] = useState(false);
   const [isContactOpen, setIsContactOpen] = useState(false);
-  const [showLogoutMenu, setShowLogoutMenu] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,22 +23,6 @@ const Navigation = ({ onLogout }: NavigationProps) => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        setShowLogoutMenu(false);
-      }
-    };
-
-    if (showLogoutMenu) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [showLogoutMenu]);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -66,24 +44,19 @@ const Navigation = ({ onLogout }: NavigationProps) => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        isScrolled ? "bg-black/95 backdrop-blur-md shadow-lg" : "bg-transparent"
+        isScrolled ? "bg-background/95 backdrop-blur-md shadow-lg border-b border-border" : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <div className="relative" ref={menuRef}>
+          <div>
             <button
-              onClick={() => {
-                if (!showLogoutMenu) {
-                  window.scrollTo({ top: 0, behavior: "smooth" });
-                }
-                setShowLogoutMenu(!showLogoutMenu);
-              }}
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               className="hover:scale-105 transition-transform flex items-center"
-              aria-label="Profile"
+              aria-label="Scroll to top"
             >
               {imageError ? (
-                <span className="text-2xl font-bold bg-gradient-to-r from-primary to-red-600 bg-clip-text text-transparent">
+                <span className="text-2xl font-bold bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
                   CM
                 </span>
               ) : (
@@ -95,22 +68,6 @@ const Navigation = ({ onLogout }: NavigationProps) => {
                 />
               )}
             </button>
-
-            {/* Logout Dropdown Menu */}
-            {showLogoutMenu && (
-              <div className="absolute left-0 top-12 mt-2 w-48 bg-card border border-border rounded-lg shadow-lg z-50 overflow-hidden">
-                <button
-                  onClick={() => {
-                    setShowLogoutMenu(false);
-                    onLogout();
-                  }}
-                  className="w-full flex items-center gap-3 px-4 py-3 text-left hover:bg-primary/10 transition-colors text-foreground"
-                >
-                  <LogOut className="h-5 w-5 text-primary" />
-                  <span className="font-semibold">Logout</span>
-                </button>
-              </div>
-            )}
           </div>
 
           {/* Desktop Navigation */}
@@ -155,7 +112,7 @@ const Navigation = ({ onLogout }: NavigationProps) => {
             {/* Profile Section */}
             <div className="flex items-center gap-3 pb-4 border-b border-border/50">
               {imageError ? (
-                <span className="text-xl font-bold bg-gradient-to-r from-primary to-red-600 bg-clip-text text-transparent">
+                <span className="text-xl font-bold bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
                   CM
                 </span>
               ) : (
@@ -195,18 +152,6 @@ const Navigation = ({ onLogout }: NavigationProps) => {
               className="w-full bg-primary hover:bg-primary/90 text-white px-4 py-3 rounded-lg transition-colors duration-200 font-semibold mt-4"
             >
               Contact Me
-            </button>
-
-            {/* Logout Button */}
-            <button
-              onClick={() => {
-                setIsMobileMenuOpen(false);
-                onLogout();
-              }}
-              className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-foreground hover:bg-primary/10 transition-colors duration-200 mt-4"
-            >
-              <LogOut className="h-5 w-5 text-primary" />
-              <span className="font-semibold">Logout</span>
             </button>
           </div>
         </SheetContent>
